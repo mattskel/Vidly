@@ -12,7 +12,7 @@ namespace Vidly.Dtos
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please enter customer's name.")]
-        [StringLength(255)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Name { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
