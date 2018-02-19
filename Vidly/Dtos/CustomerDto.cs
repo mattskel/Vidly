@@ -19,7 +19,8 @@ namespace Vidly.Dtos
 
         // Domain class creates dependency so remove
         //public MembershipType MembershipType { get; set; }
-        
+        public MembershipTypeDto MembershipType { get; set; }
+
         public byte MembershipTypeId { get; set; }  // Will automatically be treated as a foreign key
         
         //[Min18YearsIfAMember]
