@@ -20,14 +20,12 @@ namespace Vidly.Controllers.Api
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
-            if (newRental.MovieId.Count == 0)
-                return BadRequest("No Movie Ids have been given.");
 
             var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
 
-            var movies = _context.Movies.Where(m => newRental.MovieId.Contains(m.Id)).ToList();
+            var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id)).ToList();
 
-            if (movies.Count != newRental.MovieId.Count)
+            if (movies.Count != newRental.MovieIds.Count)
                 return BadRequest("One or more MovieIds are invalid");
 
             foreach (var movie in movies)
